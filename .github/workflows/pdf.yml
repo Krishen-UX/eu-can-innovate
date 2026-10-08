@@ -1,0 +1,48 @@
+# Renders the concept note PDF from content.yml whenever the content or the layout changes,
+# and commits it to pdf/. Vercel then deploys the site with the fresh PDF.
+name: Update concept note PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - content.yml
+      - src/**
+      - scripts/**
+      - img/**
+      - fonts/**
+      - package.json
+      - package-lock.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pdf
+  cancel-in-progress: true
+
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run pdf
+      - name: Commit the PDF if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pdf/
+          if git diff --cached --quiet; then
+            echo "PDF unchanged."
+            exit 0
+          fi
+          git commit -m "Update concept note PDF from content.yml"
+          git pull --rebase origin main
+          git push origin HEAD:main

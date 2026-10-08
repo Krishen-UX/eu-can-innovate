@@ -1,0 +1,16 @@
+{
+  "name": "eu-can-innovate",
+  "private": true,
+  "type": "module",
+  "description": "Website and printable concept note for EU CAN Innovate, built from content.yml.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "pdf": "node scripts/build.mjs && node scripts/pdf.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "4.3.2"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

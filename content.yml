@@ -1,0 +1,260 @@
+# EU CAN Innovate: every text on the website AND in the printable concept note (PDF).
+#
+# How to edit
+# - Change the text here, then commit to main (on github.com: pencil icon, "Commit changes").
+# - Vercel rebuilds the website from this file.
+# - A GitHub Action renders a new PDF from the same file and commits it, so the download
+#   on the website is always up to date. The print version is also visible at /print.html.
+#
+# Conventions
+# - Headlines: one line per row. The PDF keeps these line breaks, the website flows them.
+# - Where web and print need different wording, a field has `web:` and `print:` variants.
+#   If you change one, check whether the other should change too.
+# - Links inside a paragraph: [link text](https://example.com)
+# - The PDF pages have a fixed A4 size. If a text gets much longer, check the PDF afterwards.
+
+meta:
+  name: EU CAN Innovate
+  subtitle: EU-Canada Digital Bridge Hackathon
+  date: October 2026
+  date_short: Oct 2026
+  description: "EU CAN Innovate: an EU-Canada hackathon in two live-linked hubs, building prototypes against real, pre-scoped problems. Concept stage, seeking partners."
+  footer_note: Concept stage, 2026
+  disclaimer: Independent initiative, not affiliated with the EU or the Government of Canada
+  pdf_file: EU-CAN-Innovate-Concept-Note.pdf
+  pdf_label: Download the concept note (PDF)
+
+contact:
+  name: Krishen Mertens
+  city: Berlin
+  location: Berlin, Germany
+  email: krishen.mertens@googlemail.com
+  linkedin: https://linkedin.com/in/krishenmertens
+
+nav:
+  cta: Get in touch
+
+cover:
+  kicker_left: Concept note
+  kicker_right: Independent initiative
+  intro: A hybrid hackathon in two hubs, one in Europe and one in Canada, where engineers, founders, designers and researchers from both sides build prototypes against real, pre-scoped problems. We are at concept stage and looking for partners for a first edition in 2027.
+  cta_primary: Become a partner
+  cta_secondary: See the four tracks
+  image_alt: Two hands from different people holding a small circuit board between them
+  hubs:
+    - label: Hub 01
+      cities: Paris / Brussels / Berlin
+    - label: Hub 02
+      cities: Toronto / Montréal / Vancouver
+  # Print cover only
+  prepared_by_label: Prepared by
+  status_label: Status
+  status: Early-stage draft, seeking feedback and expressions of interest
+  date_label: Date
+
+vision:
+  tab: Vision
+  title: |-
+    The opportunity,
+    and the case for
+    acting now
+  left:
+    - On September 16, 2026, European Commission President Ursula von der Leyen proposed that Canada become the European Union's first associate member, with Prime Minister Mark Carney present in the chamber in Strasbourg.
+    - The proposal points at technology, critical raw materials, energy and security. Its legal shape is still undefined, and an EU-Canada Summit in October 2026 may carry the discussion further.
+    - "We see strong political intent and mutual commitment. What we need now is a visible, working demonstration at the level where cooperation is actually built: among the engineers, founders, designers and researchers who would have to deliver it."
+  right:
+    - That foundation already exists today. Canada has been associated with Pillar II of Horizon Europe, the Union's research and innovation programme, since 2022, covering climate, energy, the digital economy and health.
+    - A legal and funding structure for EU-Canada innovation cooperation is therefore in place. This initiative sets out to make it tangible and visible.
+    - EU CAN Innovate brings practitioners from across the Union and from Canada into one working format, builds prototypes against real, pre-scoped problems, and documents what comes out of it.
+  quote_label: Positioning
+  quote: This works, regardless of how or whether a formal political arrangement is ever finalised.
+
+tracks:
+  tab: Key tracks
+  title: |-
+    Four focus
+    areas
+  lede: Mapped onto the sectors named in the Union's own proposal, so the work stays relevant to the political process without depending on it.
+  items:
+    - code: T/01
+      title: Technology
+      text: Digital innovation and shared tooling across the two research ecosystems.
+      image: img/t1-chip.png
+      image_alt: A hand holding a microchip
+    - code: T/02
+      title: Critical raw materials
+      text: Supply-chain transparency and circularity for minerals and battery inputs.
+      image: img/t2-ore.png
+      image_alt: An open palm holding a chunk of raw mineral ore
+    - code: T/03
+      title: Energy
+      text: Renewables, grid integration and the transatlantic hydrogen corridor.
+      image: img/t3-solar.png
+      image_alt: A hand holding a photovoltaic solar cell
+    - code: T/04
+      title: Resilience
+      text: Civilian infrastructure and cybersecurity (excluding defence and dual-use).
+      image: img/t4-fiber.png
+      image_alt: A hand holding a fibre optic cable
+
+format:
+  tab: Format
+  title: |-
+    Two rooms,
+    one event
+  facts:
+    - label: Model
+      text: Hybrid. One European hub (Paris, Brussels or Berlin) live-linked to one Canadian hub (Toronto, Montréal or Vancouver), both to be confirmed with partners. Open to participants from across EU member states.
+    - label: Duration
+      text: Two to three days. Open to discussion with partners.
+    - label: Language
+      text: English.
+    - label: Cadence
+      text: The first edition of a recurring, documented format, not a one-off. Outputs are meant to be citable over time.
+  room_title: Who we want in the room
+  room:
+    - title: Developers and engineers
+      text: From both research ecosystems.
+    - title: Startup founders
+      text: Early-stage, building in the four tracks.
+    - title: Designers
+      text: Product, interaction and industrial.
+    - title: Researchers
+      text: University staff and graduate students.
+    - title: Corporate innovation
+      text: As mentors and challenge sponsors.
+    - title: Institutional presence
+      text: Parliament, missions or Commission, as observers.
+  image_alt: A hand holding up a blank event badge on a lanyard
+
+method:
+  tab: Method
+  title: |-
+    From prototype
+    to impact
+  lede: "Output quality depends on the quality of the challenge behind it. Every track is scoped in advance with a real problem owner: an industry partner, a research consortium, or an organisation already working across the EU-Canada relationship. Never a generic, open-ended prompt."
+  requirements:
+    - title: A named challenge owner
+      text: Each track carries a genuine, unsolved problem and an organisation that owns it.
+    - title: Teams matched in advance
+      text: Skills matched to the challenge, EU-Canada pairing built into pre-event matching rather than left to chance.
+    - title: A committed next step
+      text: A pilot conversation, an accelerator place, or at minimum a scheduled debrief, agreed before the event.
+  aim_label: The aim
+  aim: A credible starting point for continued work, not a demo that ends when the room empties.
+  flow_label: Indicative event flow
+  days:
+    - label: Day 1
+      title: Kick-off
+      text: Challenge owners brief all teams live across both hubs. Matched teams meet and settle their approach.
+    - label: Day 2
+      title: Build
+      text: Teams prototype with mentors in their hub and sync across the Atlantic in the shared window.
+    - label: Day 3
+      title: Demo
+      text: Teams present to their challenge owners, who confirm the agreed next step for each track.
+
+timeline:
+  tab: Timeline
+  title: Phases
+  phases:
+    - when: Now – Dec 2026
+      title: Outreach and feedback
+      text:
+        web: Share the concept with potential partners, gather input, refine scope and format.
+        print: Share this note with potential partners, gather input, refine scope and format.
+    - when: Early 2027
+      title: Scoping and commitments
+      text: Confirm challenge owners, secure hosting and co-organising partners, fix both host cities.
+    - when: Mid – late 2027
+      title: First edition
+      text: The event runs across both hubs.
+    - when: After
+      title: Documentation and follow-through
+      text: Record outcomes, follow up on challenge results, plan a second edition.
+  note: Deliberately decoupled from the EU-Canada political calendar. The pace is set to produce a solid first edition, not to chase a negotiation milestone.
+
+partners:
+  tab:
+    web: Partners
+    print: Partners & Questions
+  title: |-
+    Who we are
+    looking to engage
+  lede:
+    web: We are seeking conversations with organisations in these categories.
+    print: Rather than naming individual organisations at this stage, the initiative is seeking conversations across these categories. Specific approaches are being made directly and separately.
+  categories:
+    - Bilateral chambers of commerce and trade associations active in EU-Canada relations
+    - Cleantech and innovation accelerator networks in the EU and Canada
+    - Public funding and research bodies connected to Horizon Europe or equivalent Canadian programmes
+    - Universities and research institutions with relevant technical expertise
+    - Diplomatic missions and EU institutions, as observers or supporters rather than organisers
+  questions_title: Four questions for you
+  questions:
+    - Does this fill a gap, or overlap with something you already run?
+    - A standalone hackathon, a track inside an existing event, or another model?
+    - What timing realistically fits the pace of the political process?
+    - Which of the four tracks matters most to your stakeholders?
+
+about:
+  tab: About & contact
+  title: |-
+    Let us
+    talk
+  image_alt: Two hands from different people holding the ends of a cable, plugs almost touching
+  initiator_label: About the initiator
+  initiator: An independent initiative led by Krishen Mertens, a Berlin-based design and innovation professional working at the intersection of technology and sustainability. Not undertaken on behalf of, or with the backing of, any employer.
+  status_label:
+    web: Where things stand
+    print: Purpose of this document
+  status:
+    web: EU CAN Innovate is at concept stage, not a confirmed event. We are testing whether the idea resonates, gathering honest feedback on scope and feasibility, and looking for co-organisers, hosts and challenge partners.
+    print: An early-stage concept note, not a finalised event proposal. It exists to test whether the idea resonates, to gather honest feedback on scope and feasibility, and to identify co-organisers, hosts and challenge partners.
+  copy_button: Copy address
+
+# Website only: one page, English, linked once from the footer.
+legal:
+  page_title: Legal notice & privacy
+  link_label: Legal notice & privacy
+  back_label: Back to the site
+  columns:
+    - id: legal-notice
+      title: Legal notice
+      blocks:
+        - heading: Information pursuant to Section 5 DDG (German Digital Services Act)
+          text: |-
+            Nils Krischan Mertens
+            Garnisonkirchplatz 2
+            10178 Berlin
+            Germany
+        - heading: Contact
+          text: "Email: krishen.mertens@googlemail.com"
+        - heading: Responsible for content under Section 18 (2) MStV
+          text: Nils Krischan Mertens, address as above.
+        - heading: Note
+          text: EU CAN Innovate is an independent, private initiative at concept stage. It is not affiliated with the European Union, its institutions or the Government of Canada, and it is not run on behalf of any employer.
+        - heading: Liability for links
+          text: This website contains links to external websites. Their providers are solely responsible for their content. No legal violations were apparent at the time the links were set.
+        - heading: Image credits
+          text: The photographic motifs were created with the help of AI image generators and edited for this website.
+    - id: privacy
+      title: Privacy policy
+      blocks:
+        - heading: 1. Controller
+          text: "Nils Krischan Mertens, Garnisonkirchplatz 2, 10178 Berlin, Germany. Email: krishen.mertens@googlemail.com"
+        - heading: 2. Hosting and server log files
+          paragraphs:
+            - This website is hosted by Vercel, a service of Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA. When you open the page, Vercel processes technically necessary data such as your IP address, the date and time of access, the file requested, your browser and operating system, in order to deliver the page and keep the service secure. The legal basis is Art. 6 (1) (f) GDPR; the legitimate interest lies in providing the website securely and reliably.
+            - This may involve transferring data to the USA. According to Vercel, it is certified under the EU-US Data Privacy Framework. More information is available in [Vercel's privacy policy](https://vercel.com/legal/privacy-policy).
+        - heading: 3. No cookies, no tracking
+          text: This website sets no cookies, stores nothing in your browser and uses no analytics or tracking services. All fonts, images and documents are loaded directly from this website; no third-party content is embedded.
+        - heading: 4. Contact by email
+          text: If you get in touch by email, your details are processed to answer your request. The legal basis is Art. 6 (1) (f) GDPR, and Art. 6 (1) (b) GDPR for enquiries about a collaboration. The data is deleted once it is no longer needed for this purpose, unless statutory retention obligations apply.
+        - heading: 5. External links
+          text: The LinkedIn link is a plain link. No data is sent to LinkedIn unless you click it; from then on, LinkedIn's privacy policy applies.
+        - heading: 6. Your rights
+          paragraphs:
+            - You have the right of access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and to object to processing (Art. 21). To exercise these rights, contact the email address above.
+            - You also have the right to lodge a complaint with a data protection supervisory authority, for example the Berlin Commissioner for Data Protection and Freedom of Information.
+            - "Last updated: October 2026"
