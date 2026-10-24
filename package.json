@@ -5,7 +5,8 @@
   "description": "Website and printable concept note for EU CAN Innovate, built from content.yml.",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "pdf": "node scripts/build.mjs && node scripts/pdf.mjs"
+    "pdf": "node scripts/build.mjs && node scripts/pdf.mjs",
+    "og": "node scripts/og.mjs"
   },
   "dependencies": {
     "js-yaml": "4.3.2"

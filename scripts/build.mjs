@@ -59,12 +59,51 @@ const footer = `<footer class="wrap mono">
   <span>${esc(c.meta.disclaimer)}</span>
   <span class="legal-links"><a href="${pdfHref}">Concept note (PDF)</a><a href="legal.html">${esc(c.legal.link_label)}</a></span>
 </footer>`;
-const doc = ({ title, description, robots, css, body }) => `<!doctype html>
+// ---------- search engines and link previews (website only) ----------
+const siteUrl = String(c.meta.url).replace(/\/+$/, '');
+const pageTitle = `${c.meta.name}: ${c.meta.subtitle}`;
+const ogImage = `${siteUrl}/${c.meta.og_image}`;
+// Machine-readable facts for search engines and AI search. Only what the page itself states.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebSite', '@id': `${siteUrl}/#website`, url: `${siteUrl}/`, name: c.meta.name,
+      alternateName: c.meta.subtitle, inLanguage: 'en', publisher: { '@id': `${siteUrl}/#initiator` } },
+    { '@type': 'Project', '@id': `${siteUrl}/#project`, name: c.meta.name, alternateName: c.meta.subtitle,
+      url: `${siteUrl}/`, description: c.meta.description, image: ogImage,
+      founder: { '@id': `${siteUrl}/#initiator` },
+      areaServed: [{ '@type': 'Place', name: 'European Union' }, { '@type': 'Country', name: 'Canada' }],
+      knowsAbout: c.tracks.items.map((x) => x.title),
+      subjectOf: { '@type': 'DigitalDocument', name: `${c.meta.name} concept note`,
+        encodingFormat: 'application/pdf', url: `${siteUrl}/${c.meta.pdf_file}` } },
+    { '@type': 'Person', '@id': `${siteUrl}/#initiator`, name: c.contact.name,
+      address: { '@type': 'PostalAddress', addressLocality: c.contact.city, addressCountry: 'DE' },
+      sameAs: [c.contact.linkedin] },
+  ],
+};
+// "</" must not appear inside the script element.
+const jsonLdTag = `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`;
+const socialMeta = [
+  `<link rel="canonical" href="${esc(siteUrl)}/">`,
+  `<meta property="og:type" content="website">`,
+  `<meta property="og:site_name" content="${name}">`,
+  `<meta property="og:title" content="${esc(pageTitle)}">`,
+  `<meta property="og:description" content="${esc(c.meta.description)}">`,
+  `<meta property="og:url" content="${esc(siteUrl)}/">`,
+  `<meta property="og:image" content="${esc(ogImage)}">`,
+  `<meta property="og:image:width" content="1200">`,
+  `<meta property="og:image:height" content="630">`,
+  `<meta property="og:image:alt" content="${esc(c.meta.og_image_alt)}">`,
+  `<meta name="twitter:card" content="summary_large_image">`,
+  jsonLdTag,
+].join('\n') + '\n';
+
+const doc = ({ title, description, robots, head = '', css, body }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-${description ? `<meta name="description" content="${esc(description)}">\n` : ''}${robots ? `<meta name="robots" content="${robots}">\n` : ''}<title>${title}</title>
+${description ? `<meta name="description" content="${esc(description)}">\n` : ''}${robots ? `<meta name="robots" content="${robots}">\n` : ''}${head}<title>${title}</title>
 <style>
 ${css}
 </style>
@@ -435,7 +474,7 @@ if (existsSync(pdfSrc)) cpSync(pdfSrc, join(dist, c.meta.pdf_file));
 else console.warn(`Note: ${c.meta.pdf_file} not found in pdf/ yet. Run "npm run pdf" or let the GitHub Action create it.`);
 
 writeFileSync(join(dist, 'index.html'), doc({
-  title: name, description: c.meta.description, css: fontsCss + '\n' + siteCss, body: siteBody,
+  title: esc(pageTitle), description: c.meta.description, head: socialMeta, css: fontsCss + '\n' + siteCss, body: siteBody,
 }));
 writeFileSync(join(dist, 'legal.html'), doc({
   title: `${name}, Legal`, robots: 'noindex', css: fontsCss + '\n' + siteCss, body: legalBody,
@@ -443,4 +482,17 @@ writeFileSync(join(dist, 'legal.html'), doc({
 writeFileSync(join(dist, 'print.html'), doc({
   title: `${name}, Concept Note`, robots: 'noindex', css: fontsCss + '\n' + printCss, body: printBody,
 }));
-console.log('Built dist/index.html, dist/legal.html, dist/print.html');
+// Legal notice and print version are noindex, so the sitemap lists the site and the PDF only.
+const today = new Date().toISOString().slice(0, 10);
+writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>${esc(siteUrl)}/</loc><lastmod>${today}</lastmod></url>
+  <url><loc>${esc(siteUrl)}/${pdfHref}</loc><lastmod>${today}</lastmod></url>
+</urlset>
+`);
+writeFileSync(join(dist, 'robots.txt'), `User-agent: *
+Allow: /
+
+Sitemap: ${siteUrl}/sitemap.xml
+`);
+console.log('Built dist/index.html, dist/legal.html, dist/print.html, dist/sitemap.xml, dist/robots.txt');
