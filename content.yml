@@ -23,6 +23,10 @@ meta:
   disclaimer: Independent initiative, not affiliated with the EU or the Government of Canada
   pdf_file: EU-CAN-Innovate-Concept-Note.pdf
   pdf_label: Download the concept note (PDF)
+  # Search engines and link previews (mail, LinkedIn, messengers)
+  url: https://www.eucaninnovate.eu
+  og_image: img/og-image.png
+  og_image_alt: "EU CAN Innovate, EU-Canada Digital Bridge Hackathon: two hands from different people holding a circuit board in front of a blue and a red colour field"
 
 contact:
   name: Krishen Mertens

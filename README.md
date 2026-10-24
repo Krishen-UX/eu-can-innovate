@@ -21,8 +21,9 @@ Where web and print use different wording, a field has `web:` and `print:` varia
 | `src/site.css`, `src/site.js` | Website layout and motion |
 | `src/print.css` | A4 print layout |
 | `src/fonts.css`, `fonts/` | Self-hosted typefaces (Manrope, IBM Plex Sans, IBM Plex Mono; SIL Open Font License) |
-| `img/` | Cut-out motifs |
-| `scripts/build.mjs` | Builds `dist/index.html`, `dist/legal.html`, `dist/print.html` |
+| `img/` | Cut-out motifs, plus `og-image.png` (link preview for mail, LinkedIn, messengers) |
+| `src/og.html`, `scripts/og.mjs` | Template and renderer for the link preview image (`npm run og`, then commit the PNG) |
+| `scripts/build.mjs` | Builds `dist/index.html`, `dist/legal.html`, `dist/print.html`, `dist/sitemap.xml`, `dist/robots.txt`; also writes the search and link-preview tags (from `meta` in `content.yml`) |
 | `scripts/pdf.mjs` | Renders `dist/print.html` to `pdf/EU-CAN-Innovate-Concept-Note.pdf` |
 | `pdf/` | The current PDF (written by the GitHub Action) |
 
