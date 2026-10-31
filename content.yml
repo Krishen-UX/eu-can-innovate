@@ -16,8 +16,8 @@
 meta:
   name: EU CAN Innovate
   subtitle: EU-Canada Digital Bridge Hackathon
-  date: October 2026
-  date_short: Oct 2026
+  date: November 2026
+  date_short: Nov 2026
   description: "EU CAN Innovate: an EU-Canada hackathon in two live-linked hubs, building prototypes against real, pre-scoped problems. Concept stage, seeking partners."
   footer_note: Concept stage, 2026
   disclaimer: Independent initiative, not affiliated with the EU or the Government of Canada
@@ -64,10 +64,10 @@ vision:
     acting now
   left:
     - On September 16, 2026, European Commission President Ursula von der Leyen proposed that Canada become the European Union's first associate member, with Prime Minister Mark Carney present in the chamber in Strasbourg.
-    - The proposal points at technology, critical raw materials, energy and security. Its legal shape is still undefined, and an EU-Canada Summit in October 2026 may carry the discussion further.
+    - At their summit in Montréal on October 30, 2026, the two sides launched an Alliance for the Future, with work areas spanning digital and research technologies, critical raw materials and energy, and security and preparedness. They aim to define an ever-closer association of Canada to the EU by the 2027 summit.
     - "We see strong political intent and mutual commitment. What we need now is a visible, working demonstration at the level where cooperation is actually built: among the engineers, founders, designers and researchers who would have to deliver it."
   right:
-    - That foundation already exists today. Canada has been associated with Pillar II of Horizon Europe, the Union's research and innovation programme, since 2022, covering climate, energy, the digital economy and health.
+    - That foundation already exists today. Canada has been associated with Pillar II of Horizon Europe, the Union's research and innovation programme, since 2024, covering climate, energy, the digital economy and health. In Montréal, both sides committed to work toward Canada's participation in future European research and innovation programmes.
     - A legal and funding structure for EU-Canada innovation cooperation is therefore in place. This initiative sets out to make it tangible and visible.
     - EU CAN Innovate brings practitioners from across the Union and from Canada into one working format, builds prototypes against real, pre-scoped problems, and documents what comes out of it.
   quote_label: Positioning
@@ -78,16 +78,16 @@ tracks:
   title: |-
     Four focus
     areas
-  lede: Mapped onto the sectors named in the Union's own proposal, so the work stays relevant to the political process without depending on it.
+  lede: Mapped onto the work areas of the EU-Canada Alliance for the Future, so the work stays relevant to the political process without depending on it.
   items:
     - code: T/01
       title: Technology
-      text: Digital innovation and shared tooling across the two research ecosystems.
+      text: AI, compute and shared digital tooling across the two research ecosystems.
       image: img/t1-chip.png
       image_alt: A hand holding a microchip
     - code: T/02
       title: Critical raw materials
-      text: Supply-chain transparency and circularity for minerals and battery inputs.
+      text: Supply-chain transparency and circularity, from extraction to recycling.
       image: img/t2-ore.png
       image_alt: An open palm holding a chunk of raw mineral ore
     - code: T/03
@@ -97,7 +97,7 @@ tracks:
       image_alt: A hand holding a photovoltaic solar cell
     - code: T/04
       title: Resilience
-      text: Civilian infrastructure and cybersecurity (excluding defence and dual-use).
+      text: Critical infrastructure, subsea cables and cybersecurity (excluding defence and dual-use).
       image: img/t4-fiber.png
       image_alt: A hand holding a fibre optic cable
 
